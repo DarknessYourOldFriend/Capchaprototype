@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ButtonClicker : MonoBehaviour
 {
-
     public GameObject squareButton;
     // Use this for initialization
     void Start()
@@ -19,6 +18,6 @@ public class ButtonClicker : MonoBehaviour
     }
     void OnMouseDown()
     {
-
+        Debug.Log("I got clicked!");
     }
 }
