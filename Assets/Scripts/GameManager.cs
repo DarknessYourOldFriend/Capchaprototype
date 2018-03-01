@@ -5,12 +5,12 @@ using System.IO;
 
 public class GameManager : MonoBehaviour {
 	
-	public GameObject playerPrefab;
-	public GameObject wallPrefab;
-	public GameObject enemyPrefab;
+	public GameObject applePrefab;
+	public GameObject duckPrefab;
+	public GameObject brushPrefab;
 
-	public float tileWidth = 2f;
-	public float tileHeight = 2f;
+	public float tileWidth = 3f;
+	public float tileHeight = f;
 
 	public string levelFile = "level1.txt";
 
@@ -30,32 +30,32 @@ public class GameManager : MonoBehaviour {
 			// Iterating over all the chars in a line.
 			for (int col = 0; col < currentLine.Length; col++) {
 				char currentChar = currentLine[col];
-				if (currentChar == 'x') {
+				if (currentChar == 'd') {
 					// Make a wall!
-					GameObject wallObj = Instantiate(wallPrefab);
-					wallObj.transform.parent = transform;
-					wallObj.transform.position = new Vector3(col*tileWidth, -row*tileHeight, 0);
+					GameObject duckObj = Instantiate(duckPrefab);
+					duckObj.transform.parent = transform;
+					duckObj.transform.position = new Vector3(col*tileWidth, -row*tileHeight, 0);
 				}
-				else if (currentChar == 'p') {
+				else if (currentChar == 'a') {
 					// Make the player!
-					GameObject playerObj = Instantiate(playerPrefab);
-					playerObj.transform.parent = transform;
-					playerObj.transform.position = new Vector3(col*tileWidth, -row*tileHeight, 0);
+					GameObject appleObj = Instantiate(applePrefab);
+					appleObj.transform.parent = transform;
+					appleObj.transform.position = new Vector3(col*tileWidth, -row*tileHeight, 0);
 				}
-				else if (currentChar == 'e') {
+				else if (currentChar == 'b') {
 					// We flip a coin
 					if (Random.value <= 0.5f) {
-						GameObject enemyObj = Instantiate(enemyPrefab);
-						enemyObj.transform.parent = transform;
-						enemyObj.transform.position = new Vector3(col*tileWidth, -row*tileHeight, 0);
+						GameObject brushObj = Instantiate(brushPrefab);
+						brushObj.transform.parent = transform;
+						brushObj.transform.position = new Vector3(col*tileWidth, -row*tileHeight, 0);
 					}
 				}
 			}
 		}
 
-		float myX = -(width*tileWidth)/2f + tileWidth/2f;
-		float myY = (levelLines.Length*tileHeight)/2f - tileHeight/2f;
-		transform.position = new Vector3(myX, myY, 0);
+//		float myX = -(width*tileWidth)/2f + tileWidth/2f;
+//		float myY = (levelLines.Length*tileHeight)/2f - tileHeight/2f;
+//		transform.position = new Vector3(myX, myY, 0);
 
 		// If we were centering the level by moving the camera
 		//float cameraY = -(levelLines.Length*tileHeight)/2f + tileHeight/2f;

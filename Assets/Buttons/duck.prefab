@@ -9,55 +9,43 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1281721113907684}
+  m_RootGameObject: {fileID: 1765233567473354}
   m_IsPrefabParent: 1
---- !u!1 &1281721113907684
+--- !u!1 &1765233567473354
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4286544954877838}
-  - component: {fileID: 212545608567942858}
-  - component: {fileID: 114638469112825078}
+  - component: {fileID: 4752270247858900}
+  - component: {fileID: 212143935514675278}
   m_Layer: 0
-  m_Name: Button
-  m_TagString: Untagged
+  m_Name: duck
+  m_TagString: duck
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4286544954877838
+--- !u!4 &4752270247858900
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1281721113907684}
+  m_GameObject: {fileID: 1765233567473354}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.73, y: 1.12, z: 0}
+  m_LocalPosition: {x: 117.6069, y: -7.0213737, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114638469112825078
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1281721113907684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc3bd0a661ace104c8db838f89997e79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!212 &212545608567942858
+--- !u!212 &212143935514675278
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1281721113907684}
+  m_GameObject: {fileID: 1765233567473354}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -86,12 +74,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: db7bbd92c4e38af40b4ce1d5f3b6922f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f47ad5ad538d4431fa1560918a495bc5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
