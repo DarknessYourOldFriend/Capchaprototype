@@ -2,19 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonClicker : MonoBehaviour {
+public class ButtonClicker : MonoBehaviour
+{
 
-    public GameObject
+    public GameObject squareButton;
     // Use this for initialization
-    void Start() {
+    void Start()
+    {
 
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+    void OnMouseDown()
+    {
+
+    }
 }
-    void OnMouseDown () {
-
-    }
