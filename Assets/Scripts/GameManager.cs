@@ -4,18 +4,24 @@ using UnityEngine;
 using System.IO;
 
 public class GameManager : MonoBehaviour {
+
+	public GameObject[] buttons;
 	
 	public GameObject applePrefab;
 	public GameObject duckPrefab;
 	public GameObject brushPrefab;
 
-	public float tileWidth = 3f;
-	public float tileHeight = f;
+	public float tileWidth = 5f;
+	public float tileHeight = 3f;
 
 	public string levelFile = "level1.txt";
 
+	public GameObject[] buttons;
+
 	// Use this for initialization
 	void Start () {
+
+
 
 		// Reading the file into string.
 		string levelString = File.ReadAllText(Application.dataPath + Path.DirectorySeparatorChar + levelFile);
@@ -61,6 +67,13 @@ public class GameManager : MonoBehaviour {
 		//float cameraY = -(levelLines.Length*tileHeight)/2f + tileHeight/2f;
 		//float cameraX = (width*tileWidth)/2f - tileWidth/2f;
 		//Camera.main.transform.position = new Vector3(cameraX, cameraY, -10);
+
+		buttons = GameObject.FindGameObjectsWithTag ("button");
+
+//		foreach (GameObject buttonObj in buttons) {
+//			string buttonTag = buttonObj.GetComponents<ImageTag> ().ButtonImageTag;
+//		}
+
 	}
 	
 	// Update is called once per frame
