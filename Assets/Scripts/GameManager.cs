@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour {
 	public GameObject brushPrefab;
 
 	public float tileWidth = 3f;
-	public float tileHeight = f;
+	public float tileHeight = 3f;
 
 	public string levelFile = "level1.txt";
 

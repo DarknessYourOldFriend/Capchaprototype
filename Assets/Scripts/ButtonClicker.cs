@@ -19,5 +19,6 @@ public class ButtonClicker : MonoBehaviour
     void OnMouseDown()
     {
         Debug.Log("I got clicked!");
+
     }
 }
