@@ -7,6 +7,7 @@ public class Level1 : MonoBehaviour
     public float correctAnswers;
     public float wrongAnswers;
     ButtonClicker clicker;
+    public bool clicked;
     // Use this for initialization
     void Start()
     {
@@ -16,9 +17,10 @@ public class Level1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (clicker.clickedTag == "apple")
+        if (clicker.clickedTag == "apple" && clicked == false)
         {
             correctAnswers += 1;
+            clicked = true;
         }
         if (correctAnswers == 3)
         {
