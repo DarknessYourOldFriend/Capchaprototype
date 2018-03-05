@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class ButtonClicker : MonoBehaviour
 {
+    Collider2D clickedObject;
+    public string clickedTag;
     public GameObject squareButton;
     // Use this for initialization
     void Start()
     {
-
+        clickedObject = GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
@@ -18,7 +20,7 @@ public class ButtonClicker : MonoBehaviour
     }
     void OnMouseDown()
     {
-        Debug.Log("I got clicked!");
-
+        Debug.Log("I got clicked! Tag of this is:" + clickedTag);
+        clickedTag = (clickedObject.tag);
     }
 }
