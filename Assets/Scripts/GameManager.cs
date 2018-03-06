@@ -14,8 +14,10 @@ public class GameManager : MonoBehaviour {
 
 	public string levelFile = "level1.txt";
 
+
 	// Use this for initialization
 	void Start () {
+
 
 		// Reading the file into string.
 		string levelString = File.ReadAllText(Application.dataPath + Path.DirectorySeparatorChar + levelFile);
@@ -64,7 +66,5 @@ public class GameManager : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
-	}
+	void Update () {}
 }

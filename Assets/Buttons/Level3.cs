@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Level1 : MonoBehaviour
-{
+public class Level3 : MonoBehaviour {
+
     public float correctAnswers;
     public float wrongAnswers;
     ButtonClicker clicker;
@@ -33,3 +33,4 @@ public class Level1 : MonoBehaviour
         }
     }
 }
+

@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Level1 : MonoBehaviour
-{
+public class Level2 : MonoBehaviour {
     public float correctAnswers;
     public float wrongAnswers;
     ButtonClicker clicker;
@@ -17,12 +16,12 @@ public class Level1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (clicker.clickedTag == "apple" && clicked == false)
+        if (clicker.clickedTag == "duck" && clicked == false)
         {
             correctAnswers += 1;
             clicked = true;
         }
-        if (clicker.clickedTag != "apple" && clicked == false)
+        if (clicker.clickedTag != "duck" && clicked == false)
         {
             wrongAnswers += 1;
             clicked = true;
@@ -33,3 +32,4 @@ public class Level1 : MonoBehaviour
         }
     }
 }
+
