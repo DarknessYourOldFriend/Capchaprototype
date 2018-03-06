@@ -29,7 +29,7 @@ GameObject:
   - component: {fileID: 61583500996416830}
   m_Layer: 0
   m_Name: apple
-  m_TagString: apple
+  m_TagString: duck
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
