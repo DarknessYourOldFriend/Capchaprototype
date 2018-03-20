@@ -177,10 +177,12 @@ MonoBehaviour:
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Click a duck three times!
+  m_Text: 'Invalid Answer. Please try again.
+
+    Click a duck three times!'
 --- !u!222 &395501965
 CanvasRenderer:
   m_ObjectHideFlags: 0

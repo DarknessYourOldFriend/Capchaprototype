@@ -384,9 +384,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Not sure if you clicked the right thing...
-
-    Click a duck three times!'
+  m_Text: "Thank you. \nPlease click a duck three times."
 --- !u!222 &1183977062
 CanvasRenderer:
   m_ObjectHideFlags: 0
