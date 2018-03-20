@@ -7,6 +7,8 @@ TagManager:
   - brush
   - duck
   - apple
+  - button
+  - question
   layers:
   - Default
   - TransparentFX

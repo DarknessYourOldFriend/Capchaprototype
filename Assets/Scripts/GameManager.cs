@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
-	public GameObject[] buttons;
-	
+	public bool selectedAllTargets = true;
 	public GameObject applePrefab;
 	public GameObject duckPrefab;
 	public GameObject brushPrefab;
+	public string targetTag;
 
 	public float tileWidth = 5f;
 	public float tileHeight = 3f;
+	int index;
 
 	public string levelFile = "level1.txt";
 
@@ -20,6 +22,10 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+
+
+//		index = Random.Range (0, buttons.Length);
 
 
 
@@ -37,19 +43,19 @@ public class GameManager : MonoBehaviour {
 			for (int col = 0; col < currentLine.Length; col++) {
 				char currentChar = currentLine[col];
 				if (currentChar == 'd') {
-					// Make a wall!
+					index = Random.Range (0, buttons.Length);
 					GameObject duckObj = Instantiate(duckPrefab);
 					duckObj.transform.parent = transform;
 					duckObj.transform.position = new Vector3(col*tileWidth, -row*tileHeight, 0);
 				}
 				else if (currentChar == 'a') {
-					// Make the player!
+
 					GameObject appleObj = Instantiate(applePrefab);
 					appleObj.transform.parent = transform;
 					appleObj.transform.position = new Vector3(col*tileWidth, -row*tileHeight, 0);
 				}
 				else if (currentChar == 'b') {
-					// We flip a coin
+
 					if (Random.value <= 0.5f) {
 						GameObject brushObj = Instantiate(brushPrefab);
 						brushObj.transform.parent = transform;
@@ -58,7 +64,8 @@ public class GameManager : MonoBehaviour {
 				}
 			}
 		}
-
+		buttons = GameObject.FindGameObjectsWithTag("button");
+//		Debug.Log (buttons.Length);
 //		float myX = -(width*tileWidth)/2f + tileWidth/2f;
 //		float myY = (levelLines.Length*tileHeight)/2f - tileHeight/2f;
 //		transform.position = new Vector3(myX, myY, 0);
@@ -68,16 +75,71 @@ public class GameManager : MonoBehaviour {
 		//float cameraX = (width*tileWidth)/2f - tileWidth/2f;
 		//Camera.main.transform.position = new Vector3(cameraX, cameraY, -10);
 
-		buttons = GameObject.FindGameObjectsWithTag ("button");
-
-//		foreach (GameObject buttonObj in buttons) {
-//			string buttonTag = buttonObj.GetComponents<ImageTag> ().ButtonImageTag;
-//		}
-
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
+		checkButtons ();
 		
 	}
+
+	public void checkButtons() {
+
+
+		foreach (GameObject buttonObj in buttons) {
+			string buttonTag = buttonObj.GetComponent<ImageTag>().ButtonImageTag;
+			bool buttonIsSelected = buttonObj.GetComponent<ImageTag> ().isSelected;
+
+			if (buttonTag == targetTag) {
+				if (buttonIsSelected == true) {
+					// We found a button that's a duck that we didn't select, therefore we have not selected all ducks
+					selectedAllTargets = true;
+				} 
+				else {
+					selectedAllTargets = false;
+					return;
+				}
+			}
+				
+			if (buttonTag != targetTag) {
+				if (buttonIsSelected == true) {
+					// We found a button that's NOT a duck that we DID select, therefore we have not selected ONLY the ducks.
+					selectedAllTargets = false;
+					return;
+				} 
+				else {
+					selectedAllTargets = true;
+				}
+
+			}
+
+//			Debug.Log ("selectedAllDucks =" + selectedAllTargets);
+
+		}
+
+//		foreach (GameObject buttonObj in buttons) {
+//			string buttonTag = buttonObj.GetComponent<ImageTag>().ButtonImageTag;
+//			bool buttonIsSelected = buttonObj.GetComponent<ImageTag>().isSelected;
+//			if (buttonTag == "duck" && buttonIsSelected == false) {
+//				Debug.Log ("First IF");
+//				// We found a button that's a duck that we didn't select, therefore we have not selected all ducks
+//				selectedAllDucks = false;
+//			}
+//			if (buttonTag != "duck" && buttonIsSelected == true) {
+//				// We found a button that's NOT a duck that we DID select, therefore we have not selected ONLY the ducks.
+//				selectedAllDucks = false;
+//
+//				Debug.Log ("Second IF");
+//
+//			} 
+//
+//			if (buttonTag == "duck" && buttonIsSelected == true) {
+//				selectedAllDucks = true;
+//			}
+//		}
+//		Debug.Log ("selectedAllDucks is " + selectedAllTargets);
+
+	}
+
 }
