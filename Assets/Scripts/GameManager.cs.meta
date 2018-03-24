@@ -1,11 +1,17 @@
 fileFormatVersion: 2
 guid: 65418e8fcb3f64115a85822818233f74
-timeCreated: 1519935629
+timeCreated: 1519938403
 licenseType: Free
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - applePrefab: {fileID: 1291182889935818, guid: fa478c9f9d49645f0a36527c16834f1e,
+      type: 2}
+  - duckPrefab: {fileID: 1765233567473354, guid: 7953b290b6cff41678576804b5151fbb,
+      type: 2}
+  - brushPrefab: {fileID: 1856381754899858, guid: 6d18f9912f41241e28889935063f0601,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

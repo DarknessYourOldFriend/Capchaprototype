@@ -10,12 +10,14 @@ public class GameManager : MonoBehaviour {
 	public GameObject brushPrefab;
 
 	public float tileWidth = 3f;
-	public float tileHeight = f;
+	public float tileHeight = 3f;
 
 	public string levelFile = "level1.txt";
 
+
 	// Use this for initialization
 	void Start () {
+
 
 		// Reading the file into string.
 		string levelString = File.ReadAllText(Application.dataPath + Path.DirectorySeparatorChar + levelFile);
@@ -64,7 +66,5 @@ public class GameManager : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
-	}
+	void Update () {}
 }

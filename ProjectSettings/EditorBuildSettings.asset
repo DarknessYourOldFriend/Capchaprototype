@@ -4,4 +4,16 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Oliver Scene.unity
+    guid: e1df5290d7e94964385387ef8042b05a
+  - enabled: 1
+    path: Assets/Scenes/Level 2.unity
+    guid: 88ac0ad23143d044cb78c58d585c2707
+  - enabled: 1
+    path: Assets/Scenes/Level 3.unity
+    guid: e971af93003d0bd49af9e79cf693b990
+  - enabled: 1
+    path: Assets/Scenes/Level 4.unity
+    guid: d9137fc1234bdd742be91ab79e2b3408
