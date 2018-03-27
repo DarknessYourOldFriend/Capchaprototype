@@ -9,36 +9,36 @@ public class ButtonClick : MonoBehaviour {
 	Button submitButton;
 	public bool submitted = false;
 
-	//if (GameObject.Find("name of the gameobject holding the script with the bool").GetComponent<name of the script holding the bool>().IsLightOn)
+	public Sprite retryImage;
+	public Sprite continueImage;
 
 
-	// Use this for initialization
+//if (GameObject.Find("name of the gameobject holding the script with the bool").GetComponent<name of the script holding the bool>().IsLightOn)
+
 	void Start () {
 		submitButton = GetComponent<Button> ();
+		submitButton.GetComponentInChildren<Text>().text = "Submit";
 		submitButton.onClick.AddListener (Submit);
-
 	}
 		
 	public void Submit(){
-		if (GameObject.Find ("GameManager").GetComponent<GameManager> ().selectedAllTargets == true) {
-			Debug.Log ("You selected all the ducks!");
+		//Change the buttons depending on the answer / Retry or Continue
+		if (submitted == false) {
+			submitted = true;
+			if (GameObject.Find ("GameManager").GetComponent<GameManager> ().selectedAllTargets == true) {
+				submitButton.GetComponentInChildren<Text>().text = "";
+				submitButton.image.sprite = continueImage;
+			} else {
+				submitButton.GetComponentInChildren<Text>().text = "";
+				submitButton.image.sprite = retryImage;	
+			}
+		} else {
+			if (GameObject.Find ("GameManager").GetComponent<GameManager> ().selectedAllTargets == true) {
+				Application.LoadLevel(Application.loadedLevel + 1);
+			} else {
+				SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+			}
 		}
-		else {
-			Debug.Log ("You DIDN'T selected all the ducks!");
-		}
-//		submitted = true;
-//		SceneManager.LoadScene("Level02");
 	}
-
-	public void onClick_false(){
-
-//		if (Input.GetKeyDown (KeyCode.Space)) {
-//			submitted = true;
-////			Application.LoadLevel(Application.loadedLevel);
-//		}
-
-	}
-
-
 }
 

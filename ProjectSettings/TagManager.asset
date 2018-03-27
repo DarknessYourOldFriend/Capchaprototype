@@ -9,6 +9,7 @@ TagManager:
   - apple
   - button
   - question
+  - tag
   layers:
   - Default
   - TransparentFX

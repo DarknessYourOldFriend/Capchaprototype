@@ -4,19 +4,18 @@ using UnityEngine;
 
 public class RemoveText : MonoBehaviour {
 
-	GameObject submitted;
-	bool submittedRight;
+	GameObject gameManager;
+	ButtonClick submitted;
 
 	// Use this for initialization
 	void Start () {
-		submitted = GameObject.Find ("GameManager");
-		submittedRight = submitted.GetComponent<ButtonClick> ().submitted;
-
+		gameManager = GameObject.Find ("GameManager");
+		submitted = GameObject.Find ("SubmitButton").GetComponent<ButtonClick> ();
 	}
 	
-	// Update is called once per frame
+	// Deactivate the question text
 	void Update () {
-		if (submittedRight == true) {
+		if (submitted.submitted == true) {
 			gameObject.SetActive(false);
 		}
 		

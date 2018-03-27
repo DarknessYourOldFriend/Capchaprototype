@@ -438,7 +438,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'EVIL '
+  m_Text: KINKY
 --- !u!222 &1004511193
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -474,15 +474,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedAllTargets: 1
-  targetObjPrefab: {fileID: 1805872806331444, guid: bf3b49456257846d1954a8e57eb50ff7,
+  targetObjPrefab: {fileID: 1547263880312182, guid: 9f39b056e93fd4411a2c0eb0d7ca50c2,
     type: 2}
-  targetTag1: evil
+  targetTag1: kinky
   targetTag2: null
   tileWidth: 2.2
   tileHeight: 2.2
-  levelFile: level1.txt
+  levelFile: level4.txt
   buttons:
-  - {fileID: 1035996060165830, guid: 63755ed8f17e449749372b29d93157de, type: 2}
+  - {fileID: 1805872806331444, guid: bf3b49456257846d1954a8e57eb50ff7, type: 2}
 --- !u!4 &1360625112
 Transform:
   m_ObjectHideFlags: 0
@@ -508,8 +508,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   feedbackText: {fileID: 547823727}
-  goodFeedbackText: Good Job! Let's move on!
-  badFeedbackText: Ooops! Let's try again.
+  goodFeedbackText: That's right! Let's move on!
+  badFeedbackText: Nope, that's totally legal.
 --- !u!1 &1399770967
 GameObject:
   m_ObjectHideFlags: 0

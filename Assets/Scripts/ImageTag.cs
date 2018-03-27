@@ -5,17 +5,18 @@ using UnityEngine;
 public class ImageTag : MonoBehaviour {
 
 	public bool isSelected = false;
-	public string ButtonImageTag;
+	public string ButtonImageTag1;
+	public string ButtonImageTag2;
 	public GameObject selectedObj;
 	public GameObject frame;
 
-	
-	// Update is called once per frame
+
 	void OnMouseDown() {
 
 		isSelectedRun ();
 	}
 
+	//Instantiate the frame around selected buttons
 	void isSelectedRun() {
 
 		if (isSelected == false){
@@ -23,7 +24,6 @@ public class ImageTag : MonoBehaviour {
 			if (frame == null) {
 				frame = Instantiate (selectedObj, this.gameObject.transform);
 				frame.transform.localPosition = Vector3.zero;
-
 			}
 		}
 		else {
@@ -32,6 +32,5 @@ public class ImageTag : MonoBehaviour {
 				Destroy (frame);
 			}	
 		}
-
 	}
 }
