@@ -508,8 +508,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   feedbackText: {fileID: 547823727}
-  goodFeedbackText: That's right! Let's move on!
-  badFeedbackText: Nope, that's totally legal.
+  goodFeedbackText: Amazing! Let's move on!
+  badFeedbackText: No, that is wrong.
 --- !u!1 &1399770967
 GameObject:
   m_ObjectHideFlags: 0

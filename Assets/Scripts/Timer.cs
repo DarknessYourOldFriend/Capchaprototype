@@ -7,15 +7,16 @@ public class Timer : MonoBehaviour {
 
 	public static Timer instance = null;
 	Image timerImage;
-	public float timer;
+//	public float timer;
+//	float timeTotal;
+//	public bool timeIsUp =  false;
+	GameObject timerVisual;
+	float timeRemain;
 	float timeTotal;
-	public bool timeIsUp =  false;
-	public GameObject timerVisual;
 
 
 	void Awake()
 	{
-		Debug.Log ("HELLO!");
 		if (instance == null) {
 			instance = this;
 			DontDestroyOnLoad(gameObject);
@@ -29,17 +30,17 @@ public class Timer : MonoBehaviour {
 	void Start () 
 	{
 		timerImage = this.GetComponent<Image>();
-		timeTotal = timer;
+		timeTotal = GameObject.Find ("Timer").GetComponent<TimerCountdown> ().timeTotal;
+
 	}
 	
 
 	void Update () 
 	{
-		timer -= Time.deltaTime;
-		timerImage.fillAmount = timer / timeTotal;
-		if (timer <= 0) {
-			timeIsUp = true;
-		}
+		timeRemain = GameObject.Find ("Timer").GetComponent<TimerCountdown> ().timer;
+		Debug.Log (timeRemain);
+		timerImage.fillAmount = timeRemain / timeTotal;
+
 	}
 
 
