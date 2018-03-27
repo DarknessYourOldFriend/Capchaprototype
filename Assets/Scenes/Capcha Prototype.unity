@@ -140,6 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65418e8fcb3f64115a85822818233f74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttons: []
   applePrefab: {fileID: 1291182889935818, guid: fa478c9f9d49645f0a36527c16834f1e,
     type: 2}
   duckPrefab: {fileID: 1765233567473354, guid: 7953b290b6cff41678576804b5151fbb, type: 2}
