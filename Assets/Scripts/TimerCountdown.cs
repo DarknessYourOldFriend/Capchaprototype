@@ -8,16 +8,21 @@ public class TimerCountdown : MonoBehaviour {
 	public float timer;
 	public float timeTotal;
 	public bool timeIsUp =  false;
+	public bool useTimer;
 	// Use this for initialization
 
 	void Awake()
-	{
-		if (instance == null) {
-			instance = this;
-			DontDestroyOnLoad(gameObject);
+	{ 
+		if (useTimer == true){
+			if (instance == null) {
+				instance = this;
+				DontDestroyOnLoad(gameObject);
 
-		} else if (instance != this) {
-			Destroy (gameObject);
+			} 
+			else if (instance != this) 
+			{
+					Destroy (gameObject);
+			}
 		}
 	}
 
@@ -29,9 +34,15 @@ public class TimerCountdown : MonoBehaviour {
 
 	void Update () 
 	{
-		timer -= Time.deltaTime;
-		if (timer <= 0) {
-			timeIsUp = true;
+		if (useTimer == true) 
+		{
+			if (timer > 0) 
+			{
+				timer -= Time.deltaTime;
+			}
+			else {
+				timeIsUp = true;
+				}
 		}
 	}
 }

@@ -38,7 +38,6 @@ public class Timer : MonoBehaviour {
 	void Update () 
 	{
 		timeRemain = GameObject.Find ("Timer").GetComponent<TimerCountdown> ().timer;
-		Debug.Log (timeRemain);
 		timerImage.fillAmount = timeRemain / timeTotal;
 
 	}

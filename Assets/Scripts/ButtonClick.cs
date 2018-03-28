@@ -17,7 +17,6 @@ public class ButtonClick : MonoBehaviour {
 
 	void Start () {
 		submitButton = GetComponent<Button> ();
-		submitButton.GetComponentInChildren<Text>().text = "Submit";
 		submitButton.onClick.AddListener (Submit);
 	}
 		
@@ -26,10 +25,8 @@ public class ButtonClick : MonoBehaviour {
 		if (submitted == false) {
 			submitted = true;
 			if (GameObject.Find ("GameManager").GetComponent<GameManager> ().selectedAllTargets == true) {
-				submitButton.GetComponentInChildren<Text>().text = "";
 				submitButton.image.sprite = continueImage;
 			} else {
-				submitButton.GetComponentInChildren<Text>().text = "";
 				submitButton.image.sprite = retryImage;	
 			}
 		} else {

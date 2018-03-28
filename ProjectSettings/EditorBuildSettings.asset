@@ -11,18 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level01.unity
     guid: 52e2c091aa07c55459a40ba9ec0920b1
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 7641f5b6b015b445ca5ea8a21fc01086
-  - enabled: 1
-    path: Assets/Scenes/Level03.unity
-    guid: 678316310af8e429faa61db8c49f91bd
   - enabled: 1
     path: Assets/Scenes/Level02.unity
     guid: f352a7bf7613243cf8e07ca0538c2a3f
+  - enabled: 1
+    path: Assets/Scenes/Level03.unity
+    guid: 678316310af8e429faa61db8c49f91bd
   - enabled: 1
     path: Assets/Scenes/Level04.unity
     guid: 55c3a63061e18438cb219bbc826e76c0
@@ -35,3 +29,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level07.unity
     guid: d662294a8b1f44686b556f6ae2331a9a
+  - enabled: 1
+    path: Assets/Scenes/GameOverScene.unity
+    guid: 2eaab39d413d64cc48aa7a4656c52b44
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000

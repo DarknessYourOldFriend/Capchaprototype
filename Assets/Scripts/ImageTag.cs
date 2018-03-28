@@ -11,13 +11,14 @@ public class ImageTag : MonoBehaviour {
 	public GameObject frame;
 
 
-	void OnMouseDown() {
-
+	void OnMouseDown() 
+	{
 		isSelectedRun ();
 	}
 
 	//Instantiate the frame around selected buttons
-	void isSelectedRun() {
+	void isSelectedRun() 
+	{
 
 		if (isSelected == false){
 			isSelected = true;

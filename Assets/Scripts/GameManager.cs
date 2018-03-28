@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour {
 	public GameObject targetObjPrefab;
 	public string targetTag1;
 	public string targetTag2 = "null";
+	public bool timeIsUp;
+	bool timerRunning;
 
 	public float tileWidth = 2f;
 	public float tileHeight = 2f;
@@ -22,7 +24,9 @@ public class GameManager : MonoBehaviour {
 	//LEVEL GENERATED
 	// Use this for initialization
 	void Start () {
-	
+
+		timerRunning = GameObject.Find ("Timer").GetComponent<TimerCountdown> ().useTimer;
+
 		// Reading the file into string.
 		string levelString = File.ReadAllText(Application.dataPath + Path.DirectorySeparatorChar + levelFile);
 
@@ -64,7 +68,22 @@ public class GameManager : MonoBehaviour {
 	
 
 	void Update () {
-		checkButtons ();		
+
+		if (timerRunning == false) {
+			checkButtons ();
+		} else 
+		{
+			timeIsUp = GameObject.Find ("Timer").GetComponent<TimerCountdown> ().timeIsUp;
+			if (timeIsUp == false) {
+				checkButtons ();
+			} else 
+			{
+				GameObject Timer = GameObject.Find ("Timer");
+				Destroy (Timer);
+				SceneManager.LoadScene ("GameOverScene");
+			}
+		}
+			
 	}
 
 
@@ -73,17 +92,85 @@ public class GameManager : MonoBehaviour {
 
 
 		foreach (GameObject buttonObj in buttons) {
-			string buttonTag1 = buttonObj.GetComponent<ImageTag>().ButtonImageTag1;
-			string buttonTag2 = buttonObj.GetComponent<ImageTag>().ButtonImageTag2;
+			string buttonTag1 = buttonObj.GetComponent<ImageTag> ().ButtonImageTag1;
+			string buttonTag2 = buttonObj.GetComponent<ImageTag> ().ButtonImageTag2;
 			bool buttonIsSelected = buttonObj.GetComponent<ImageTag> ().isSelected;
-			string questionTag = GameObject.Find ("tag").GetComponent<QuestionTag> ().QuestionType;
+			string questionTag = GameObject.FindWithTag ("tag").GetComponent<QuestionTag> ().questionType;
 
-			//WE ONLY LOOK FOR ONE MATCHING TAG
-			if (questionTag == "single") {
-				if (targetTag2 == "null") {
-					if (buttonTag1 == targetTag1) {
+				//WE ONLY LOOK FOR ONE MATCHING TAG
+				if (questionTag == "single") {
+						if (buttonTag1 == targetTag1) {
+							if (buttonIsSelected == true) {
+
+								selectedAllTargets = true;
+				
+							} else {
+								selectedAllTargets = false;
+								return;
+							}
+						}
+
+						if (buttonTag1 != targetTag1) {
+							if (buttonIsSelected == true) {
+								selectedAllTargets = false;
+								return;
+							} else {
+								selectedAllTargets = true;
+							}
+						}
+
+				
+
+
+					//WE LOOK FOR TWO MATCHING TAGS
+				} else if (questionTag == "and") {
+					if (buttonTag1 == targetTag1 && buttonTag2 == targetTag2) {
 						if (buttonIsSelected == true) {
-							// We found a button that's a duck that we didn't select, therefore we have not selected all ducks
+							selectedAllTargets = true;
+						} else {
+							selectedAllTargets = false;
+							return;
+						}
+					}
+					if (buttonTag1 != targetTag1 && buttonTag2 == targetTag2) {
+						if (buttonIsSelected == true) {
+							selectedAllTargets = false;
+							return;
+						} else {
+							selectedAllTargets = true;
+						}
+					}
+
+					if (buttonTag1 == targetTag1 && buttonTag2 != targetTag2) {
+						if (buttonIsSelected == true) {
+							selectedAllTargets = false;
+							return;
+						} else {
+							selectedAllTargets = true;
+						}
+					}
+
+					if (buttonTag1 != targetTag1 && buttonTag2 != targetTag2) {
+						if (buttonIsSelected == true) {
+							selectedAllTargets = false;
+							return;
+						} else {
+							selectedAllTargets = true;
+						}
+					}
+
+					//WE ARE LOOKING FOR AT LEAST ONE OF THE TAGS TO BE TRUE
+				} else if (questionTag == "or") {
+					if (buttonTag1 == targetTag1 && buttonTag2 == targetTag2) {
+						if (buttonIsSelected == true) {
+							selectedAllTargets = true;
+						} else {
+							selectedAllTargets = false;
+							return;
+						}
+					}
+					if (buttonTag1 != targetTag1 && buttonTag2 == targetTag2) {
+						if (buttonIsSelected == true) {
 							selectedAllTargets = true;
 						} else {
 							selectedAllTargets = false;
@@ -91,9 +178,17 @@ public class GameManager : MonoBehaviour {
 						}
 					}
 
-					if (buttonTag1 != targetTag1) {
+					if (buttonTag1 == targetTag1 && buttonTag2 != targetTag2) {
 						if (buttonIsSelected == true) {
-							// We found a button that's NOT a duck that we DID select, therefore we have not selected ONLY the ducks.
+							selectedAllTargets = true;
+						} else {
+							selectedAllTargets = false;
+							return;
+						}
+					}
+
+					if (buttonTag1 != targetTag1 && buttonTag2 != targetTag2) {
+						if (buttonIsSelected == true) {
 							selectedAllTargets = false;
 							return;
 						} else {
@@ -101,83 +196,6 @@ public class GameManager : MonoBehaviour {
 						}
 					}
 				}
-		
-
-
-				//WE LOOK FOR TWO MATCHING TAGS
-			} else if (questionTag == "and") {
-				if (buttonTag1 == targetTag1 && buttonTag2 == targetTag2) {
-					if (buttonIsSelected == true) {
-						selectedAllTargets = true;
-					} else {
-						selectedAllTargets = false;
-						return;
-					}
-				}
-				if (buttonTag1 != targetTag1 && buttonTag2 == targetTag2) {
-					if (buttonIsSelected == true) {
-						selectedAllTargets = false;
-						return;
-					} else {
-						selectedAllTargets = true;
-					}
-				}
-
-				if (buttonTag1 == targetTag1 && buttonTag2 != targetTag2) {
-					if (buttonIsSelected == true) {
-						selectedAllTargets = false;
-						return;
-					} else {
-						selectedAllTargets = true;
-					}
-				}
-
-				if (buttonTag1 != targetTag1 && buttonTag2 != targetTag2) {
-					if (buttonIsSelected == true) {
-						selectedAllTargets = false;
-						return;
-					} else {
-						selectedAllTargets = true;
-					}
-				}
-
-				//WE ARE LOOKING FOR AT LEAST ONE OF THE TAGS TO BE TRUE
-			} else if (questionTag == "or") {
-				if (buttonTag1 == targetTag1 && buttonTag2 == targetTag2) {
-					if (buttonIsSelected == true) {
-						selectedAllTargets = true;
-					} else {
-						selectedAllTargets = false;
-						return;
-					}
-				}
-				if (buttonTag1 != targetTag1 && buttonTag2 == targetTag2) {
-					if (buttonIsSelected == true) {
-						selectedAllTargets = true;
-					} else {
-						selectedAllTargets = false;
-						return;
-					}
-				}
-
-				if (buttonTag1 == targetTag1 && buttonTag2 != targetTag2) {
-					if (buttonIsSelected == true) {
-						selectedAllTargets = true;
-					} else {
-						selectedAllTargets = false;
-						return;
-					}
-				}
-
-				if (buttonTag1 != targetTag1 && buttonTag2 != targetTag2) {
-					if (buttonIsSelected == true) {
-						selectedAllTargets = false;
-						return;
-					} else {
-						selectedAllTargets = true;
-					}
-				}
-			}
 		}
 	}
 }
